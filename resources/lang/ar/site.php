@@ -1,5 +1,36 @@
 <?php
 return
 [
+//   Start Global
     'dashboard' => 'الرائسية',
+    'no_data_found' => 'للاسف لا يوجد اى سجلات',
+    'edit' => 'تعديل',
+    'delete' => 'حذف',
+    'add' => 'اضافة',
+    'create' => 'اضافة ',
+    'read' => 'قراءه' ,
+    'update' => 'تعديل' ,
+    'search' => 'بحث',
+    'add_successfully' => 'تم اضافة البيانات بنجاح',
+    'updated_successfully' => 'تم تعديل البيانات بنجاح',
+    'delete_successfully' => 'تم حذف البيانات بنجاح',
+    'permissions' =>  'الصلاحيات',
+    'choose_permissions' => 'اختار الصلاحيات',
+    'categories' => 'الاقسام',
+    'products' => 'المنتجات',
+    'logout' => 'تسجيل الخروج',
+    'confirm_delete' => 'هل متاكد من الحذف',
+    'yes' => 'نعم',
+    'no' => 'لا',
+//   End Global
+
+//  Start  Users Words
+    'users' => 'المشرفين',
+    'first_name' => 'الاسم الاول',
+    'last_name' => 'الاسم الاخير',
+    'email' => 'البريد اللكترونى',
+    'action' => 'اجراء',
+    'password' => 'البسورد',
+    'password_confirmed' => 'تاكيد البسورد ',
+//   End Users Words
 ];

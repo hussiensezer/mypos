@@ -9,7 +9,7 @@
             <h1>@lang('site.dashboard')</h1>
 
             <ol class="breadcrumb">
-                <li class="active"><i class="fa fa-dashboard"></i></li>
+                <li>  <i class="fa fa-dashboard"></i> @lang('site.dashboard')</li>
             </ol>
         </section>
 

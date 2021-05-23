@@ -1,5 +1,4 @@
 @extends('layouts.dashboard.app')
-
 @section('content')
 
     <div class="content-wrapper">
@@ -9,107 +8,98 @@
             <h1>@lang('site.users')</h1>
 
             <ol class="breadcrumb">
-                <li><a href=""><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li><a href=""> @lang('site.users')</a></li>
+                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.index")}}">@lang('site.dashboard')</a></li>
+                <li class=""><a href="{{route("dashboard.users.index")}}"> @lang('site.users')</a></li>
                 <li class="active">@lang('site.add')</li>
             </ol>
         </section>
 
         <section class="content">
 
+            <!-- general form elements -->
             <div class="box box-primary">
-
-                <div class="box-header">
-                    <h3 class="box-title">@lang('site.add')</h3>
-                </div><!-- end of box header -->
-
+                <div class="box-header with-border">
+                    <h3 class="box-title" style="margin-bottom: 15px">@lang("site.add")</h3>
+                </div>
+                <!-- /.box-header -->
                 <div class="box-body">
+                    @include("partials._errors")
 
-                    @include('partials._errors')
-
-                    <form action="" method="post" enctype="multipart/form-data">
-
+                    <form action="{{route("dashboard.users.store")}}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('post') }}
+                        <div class="form-group">
+                            <label> @lang('site.first_name')</label>
+                            <input type="text" name="first_name" class="form-control" value="{{old('first_name')}}" >
+                        </div> <!-- End Form-Group -->
 
                         <div class="form-group">
-                            <label>@lang('site.first_name')</label>
-                            <input type="text" name="first_name" class="form-control" value="">
-                        </div>
+                            <label> @lang('site.last_name')</label>
+                            <input type="text" name="last_name" class="form-control" value="{{old('last_name')}}" >
+                        </div> <!-- End Form-Group -->
 
                         <div class="form-group">
-                            <label>@lang('site.last_name')</label>
-                            <input type="text" name="last_name" class="form-control" value="">
-                        </div>
+                            <label> @lang('site.email')</label>
+                            <input type="email" name="email" class="form-control" value="{{old('email')}}" >
+                        </div> <!-- End Form-Group -->
 
                         <div class="form-group">
-                            <label>@lang('site.email')</label>
-                            <input type="email" name="email" class="form-control" value="">
-                        </div>
+                            <label> @lang('site.password')</label>
+                            <input type="password" name="password" class="form-control" value="{{old('password')}}" >
+                        </div> <!-- End Form-Group -->
 
                         <div class="form-group">
-                            <label>@lang('site.image')</label>
-                            <input type="file" name="image" class="form-control image">
-                        </div>
-
+                            <label> @lang('site.password_confirmed')</label>
+                            <input type="password" name="password_confirmation" class="form-control" value="{{old('password_confirmed')}}" >
+                        </div> <!-- End Form-Group -->
                         <div class="form-group">
-                            <img src="{{ asset('uploads/user_images/default.png') }}"  style="width: 100px" class="img-thumbnail image-preview" alt="">
-                        </div>
-
-                        <div class="form-group">
-                            <label>@lang('site.password')</label>
-                            <input type="password" name="password" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label>@lang('site.password_confirmation')</label>
-                            <input type="password" name="password_confirmation" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label>@lang('site.permissions')</label>
+                            <label for="">@lang('site.permissions')</label>
+                            <!--  Start Tab Permissions -->
+                            <!-- Custom Tabs -->
                             <div class="nav-tabs-custom">
+                                @php
+                                    $models = ['users','categories','products'];
+                                    $maps = ['create','read','update','delete'];
+                                @endphp
+                                <ul class="nav nav-tabs">
+                                    @foreach($models as $index => $model)
+                                      <li class="{{ $index == 0 ? 'active': '' }}"><a href="#{{$model}}" data-toggle="tab">@lang('site.'. $model)</a></li>
+                                    @endforeach
+                                    <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    @foreach($models as $index => $model)
+                                    <div class="tab-pane {{ $index == 0 ? 'active': '' }}" id="{{$model}}">
+                                        <b>@lang('site.choose_permissions')</b>
+                                        <!-- checkbox -->
+                                        <div class="form-group" style="margin-top:10px;">
+                                            @foreach($maps  as $map)
+                                                <label style="display: inline-block; margin: 0 10px;" > <input type="checkbox" name="permissions[]" value="{{$model .'_' .$map}}"> @lang('site.' . $map) </label>
+                                            @endforeach
 
-{{--                                @php--}}
-{{--                                    $models = ['users', 'categories', 'products', 'clients', 'orders'];--}}
-{{--                                    $maps = ['create', 'read', 'update', 'delete'];--}}
-{{--                                @endphp--}}
+                                        </div>
+                                        <!-- End Check Box-->
+                                    <!-- /.tab-pane -->
 
-{{--                                <ul class="nav nav-tabs">--}}
-{{--                                    @foreach ($models as $index=>$model)--}}
-{{--                                        <li class="{{ $index == 0 ? 'active' : '' }}"><a href="#{{ $model }}" data-toggle="tab">@lang('site.' . $model)</a></li>--}}
-{{--                                    @endforeach--}}
-{{--                                </ul>--}}
-
-{{--                                <div class="tab-content">--}}
-
-{{--                                    @foreach ($models as $index=>$model)--}}
-
-{{--                                        <div class="tab-pane {{ $index == 0 ? 'active' : '' }}" id="{{ $model }}">--}}
-
-{{--                                            @foreach ($maps as $map)--}}
-{{--                                                <label><input type="checkbox" name="permissions[]" value="{{ $map . '_' . $model }}"> @lang('site.' . $map)</label>--}}
-{{--                                            @endforeach--}}
-
-{{--                                        </div>--}}
-
-{{--                                    @endforeach--}}
-
-                                </div><!-- end of tab content -->
-
-                            </div><!-- end of nav tabs -->
-
+                                </div>
+                                <!-- /.tab-content -->
+                                @endforeach
+                            </div>
+                            <!-- nav-tabs-custom -->
+                            <!--  End Tab  Permissions-->   `~
                         </div>
-
+                        </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</button>
-                        </div>
+                            <button class="btn btn-success"><i class="fa fa-plus-circle"></i> @lang('site.add')</button>
+                        </div> <!-- End Form-Group -->
 
-                    </form><!-- end of form -->
+                    </form>  <!-- End Form-->
+                </div> <!-- End Box Body-->
 
-                </div><!-- end of box body -->
+            </div>
 
-            </div><!-- end of box -->
+
+
 
         </section><!-- end of content -->
 
