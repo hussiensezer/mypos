@@ -25,6 +25,12 @@ return
     'yes' => 'Yes',
     'no' => 'No',
     'sign_in' => 'Sign In',
+    'ar' => [
+        'category' => 'Category Name In Arabic'
+    ],
+    'en' => [
+        'category' => ' Category Name In English'
+    ],
 
 //   End Global
 

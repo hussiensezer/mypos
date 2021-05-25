@@ -24,6 +24,12 @@ return
     'yes' => 'نعم',
     'no' => 'لا',
     'sign_in' => 'تسجيل الدخول',
+     'ar' => [
+        'category' => ' اسم القسم بللغه العربية'
+     ],
+    'en' => [
+        'category' => ' اسم القسم بللغه الانجلزية'
+     ],
 //   End Global
 
 //  Start  Users Words

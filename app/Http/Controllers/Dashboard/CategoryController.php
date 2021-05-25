@@ -10,6 +10,12 @@ use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['permission:categories_read'])->only('index');
+        $this->middleware(['permission:categories_create'])->only('create');
+        $this->middleware(['permission:categories_update'])->only('edit');
+        $this->middleware(['permission:categories_delete'])->only('destroy');
+    }
 
     public function index(Request $request)
     {
@@ -28,9 +34,17 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|unique:categories,name'
-        ]);
+
+//        dd($request->all());
+        $rules = [];
+
+        foreach(config('translatable.locales') as $locale) {
+            //ar.name
+//            $rules += [$locale . '.*' => 'required' ];
+            $rules += [$locale . '.name' => ['required',Rule::unique('category_translations' ,'name')] ];
+        }
+
+        $request->validate($rules);
         category::create($request->all());
         session()->flash('success',__('site.add_successfully'));
         return redirect()->route('dashboard.categories.index');
@@ -46,9 +60,15 @@ class CategoryController extends Controller
 
     public function update(Request $request, category $category)
     {
-        $request->validate([
-            'name'=> ['required', Rule::unique('categories')->ignore($category->id)],
-        ]);
+        $rules = [];
+
+        foreach(config('translatable.locales') as $locale) {
+            //ar.name
+//            $rules += [$locale . '.*' => 'required' ];
+            $rules += [$locale . '.name' => ['required',Rule::unique('category_translations' ,'name')->ignore($category->id,'category_id')] ];
+        }
+
+        $request->validate($rules);
         $category->update($request->all());
         session()->flash('success', __('site.updated_successfully'));
         return redirect()->route('dashboard.categories.index');

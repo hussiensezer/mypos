@@ -11,11 +11,18 @@ class CreateCategoriesTable extends Migration
      *
      * @return void
      */
+
+    //Categories -> will store the id of word -> id:1
+
+    //Categories_translations
+    // will store the word by lang
+    // like id:1 -> name_ar ا ب ت
+    // id:1 -> name_en  abc
+    // id:1 ->  name_fr zxy
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
             $table->timestamps();
         });
     }

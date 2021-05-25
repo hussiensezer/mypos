@@ -53,21 +53,21 @@
                                     <td>{{ $category->name}}</td>
 
                                     <td>
-{{--                                        @if(auth()->user()->hasPermission('$category_delete'))--}}
+                                        @if(auth()->user()->hasPermission('categories_update'))
                                           <a class="btn btn-primary btn-sm " href="{{ route('dashboard.categories.edit', $category->id) }}"><i class="fa fa-edit"></i> @lang('site.edit')</a>
-{{--                                        @else--}}
-{{--                                            <button class="btn btn-primary btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</button>--}}
-{{--                                        @endif--}}
+                                        @else
+                                            <button class="btn btn-primary btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</button>
+                                        @endif
 
-{{--                                        @if(auth()->user()->hasPermission(''))--}}
+                                        @if(auth()->user()->hasPermission('categories_delete'))
                                             <form action="{{route('dashboard.categories.destroy',$category->id)}}" method="post" style="display: inline-block">
                                                 {{csrf_field()}}
                                                 {{method_field('delete')}}
                                                 <button type="submit" class="btn btn-danger btn-sm delete" ><i class="fa fa-trash"></i> @lang('site.delete')</button>
                                             </form>
-{{--                                         @else--}}
-{{--                                            <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>--}}
-{{--                                         @endif--}}
+                                         @else
+                                            <button class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i> @lang('site.delete')</button>
+                                         @endif
                                     </td>
                                 </tr>
                             @endforeach

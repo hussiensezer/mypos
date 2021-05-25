@@ -148,4 +148,12 @@ return [
 
     'attributes' => [],
 
+
+    'ar'                    => [
+        'name'              => ' Name By Arabic',
+    ],
+    'en'                    => [
+        'name'              => 'Name By English',
+    ],
+
 ];
