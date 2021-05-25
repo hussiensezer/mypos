@@ -18,11 +18,13 @@ return
     'permissions' =>  'Permissions',
     'choose_permissions' => 'Choose Permissions',
     'categories' => 'Categories',
+    'category' => 'Category',
     'products' => 'Products',
     'logout' => 'Logout',
     'confirm_delete' => 'Confirm Delete',
     'yes' => 'Yes',
     'no' => 'No',
+    'sign_in' => 'Sign In',
 
 //   End Global
 
@@ -33,6 +35,7 @@ return
     'email' => 'Email',
     'action' => 'Action',
     'password' => 'Password',
-     'password_confirmed' => 'Password Confirmation',
+    'password_confirmed' => 'Password Confirmation',
+    'image' => 'Personal Image',
 //   End Users Words
 ];

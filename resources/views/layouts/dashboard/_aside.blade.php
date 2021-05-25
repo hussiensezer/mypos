@@ -4,10 +4,10 @@
 
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{ asset('dashboard_files/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                <img src="{{ auth()->user()->image_path }}" class="img-circle" alt="User Image"  style="width:50px; height:50px; border-radius:50%; padding:2px; cursor:pointer;">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>{{auth()->user()->first_name . ' ' . auth()->user()->last_name }}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -18,8 +18,9 @@
             <li><a href="{{route('dashboard.users.index')}}"><i class="fa fa-th"></i><span>@lang('site.users')</span></a></li>
             @endif
 
-                <li><a href=""><i class="fa fa-th"></i><span></span></a></li>
-
+{{--            @if(auth()->user()->hasPermission('users_read'))--}}
+                <li><a href="{{route('dashboard.categories.index')}}"><i class="fa fa-th"></i><span>@lang('site.categories')</span></a></li>
+{{--            @endif--}}
 
 
                 <li><a href=""><i class="fa fa-th"></i><span></span></a></li>

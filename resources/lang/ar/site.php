@@ -17,11 +17,13 @@ return
     'permissions' =>  'الصلاحيات',
     'choose_permissions' => 'اختار الصلاحيات',
     'categories' => 'الاقسام',
+    'category' => 'القسم',
     'products' => 'المنتجات',
     'logout' => 'تسجيل الخروج',
     'confirm_delete' => 'هل متاكد من الحذف',
     'yes' => 'نعم',
     'no' => 'لا',
+    'sign_in' => 'تسجيل الدخول',
 //   End Global
 
 //  Start  Users Words
@@ -30,7 +32,8 @@ return
     'last_name' => 'الاسم الاخير',
     'email' => 'البريد اللكترونى',
     'action' => 'اجراء',
-    'password' => 'البسورد',
-    'password_confirmed' => 'تاكيد البسورد ',
+    'password' => 'كلمة المرور',
+    'password_confirmed' => 'تاكيد كلمة المرور ',
+    'image' => 'صورة شخصية',
 //   End Users Words
 ];

@@ -45,7 +45,7 @@
                             </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">asdsad</a>
+                                    <a class="nav-link" href=""></a>
                                 </li>
 
 

@@ -186,7 +186,7 @@
                     <li class="dropdown user user-menu">
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('dashboard_files/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
+                            <img src="{{ auth()->user()->image_path }}" class="user-image" alt="User Image" >
                             <span class="hidden-xs">{{auth()->user()->first_name . ' ' .  auth()->user()->last_name}}</span>
 
                         </a>
@@ -305,20 +305,20 @@
 
         });//end of delete
 
-        // // image preview
-        // $(".image").change(function () {
-        //
-        //     if (this.files && this.files[0]) {
-        //         var reader = new FileReader();
-        //
-        //         reader.onload = function (e) {
-        //             $('.image-preview').attr('src', e.target.result);
-        //         }
-        //
-        //         reader.readAsDataURL(this.files[0]);
-        //     }
-        //
-        // });
+        // image preview
+        $(".image").change(function () {
+
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.image-preview').attr('src', e.target.result).css("display" , 'block');
+                }
+
+                reader.readAsDataURL(this.files[0]);
+            }
+
+        });
 
         CKEDITOR.config.language =  "{{ app()->getLocale() }}";
 
