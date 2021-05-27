@@ -20,7 +20,7 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $categories = Category::when($request->search,function($q) use($request){
-            $q->where('name','like','%' . $request->search . '%');
+            $q->WhereTranslationLike('name','%' . $request->search . '%');
         })->latest()->paginate(5);
         return view('dashboard.categories.index',compact('categories'));
     }// End Of Index

@@ -146,14 +146,33 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+        'category_id'           =>  'Category',
+        'image_product'         => ' Image Product',
+        'purchase_price'        => ' Purchase Price',
+        'sale_price'            => '  Sale Price',
+        'stock'                 => ' Stock',
+        'phone.0'               => ' First Phone',
+        'ar'                    => [
+            'name'              => ' Name In Arabic',
+            'description'       => 'Description In Arabic',
+        ],
+        'en'                    => [
+            'name'              => 'Name In English',
+            'description'       => 'Description In English',
+        ],
+    ],
+
 
 
     'ar'                    => [
-        'name'              => ' Name By Arabic',
+        'name'              => ' Name In Arabic',
+        'description'       => 'Description In Arabic',
     ],
     'en'                    => [
         'name'              => 'Name By English',
+        'description'       => 'Description In English',
     ],
 
 ];

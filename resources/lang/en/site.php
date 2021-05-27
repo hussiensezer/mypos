@@ -24,24 +24,48 @@ return
     'confirm_delete' => 'Confirm Delete',
     'yes' => 'Yes',
     'no' => 'No',
+    'choose' => 'Choose',
+    'choose_category' => 'Choose Category',
+    'clients' => 'Clients',
+    'client' => 'Client',
     'sign_in' => 'Sign In',
+    'product_quantity' => 'Product Quantity',
+    'related_products' => 'Related Products',
+    'phone' => 'Phone',
+    'address' => ' Address',
     'ar' => [
-        'category' => 'Category Name In Arabic'
+        'category' => 'Category Name In Arabic',
+        'product_name' => 'Product Name In Arabic',
+         'description' => 'Description In Arabic',
     ],
     'en' => [
-        'category' => ' Category Name In English'
+        'category' => ' Category Name In English',
+        'product_name' => 'Product Name  In English',
+        'description' => 'Description In English',
     ],
 
 //   End Global
 
 //  Start  Users Words
-    'users' => 'Admins',
-    'first_name' => 'First Name',
-    'last_name' => ' Last Name',
-    'email' => 'Email',
-    'action' => 'Action',
-    'password' => 'Password',
+    'users'              => 'Admins',
+    'first_name'         => 'First Name',
+    'last_name'          => ' Last Name',
+    'email'              => 'Email',
+    'action'             => 'Action',
+    'password'           => 'Password',
     'password_confirmed' => 'Password Confirmation',
-    'image' => 'Personal Image',
+    'image'              => 'Personal Image',
 //   End Users Words
+
+
+//   Start Product Words
+    'image_product'         => 'Image Product',
+    'purchase_price'        => ' Purchase Price',
+    'sale_price'            => ' Sale Price',
+    'stock'                 => ' Stock',
+    'product'               => ' Product',
+    'description'           => ' Description',
+    'profit_percent'        => ' Profit Percent',
+    'profit'                => ' Profit',
+//   End Product Words
 ];

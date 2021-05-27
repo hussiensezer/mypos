@@ -34,7 +34,7 @@ class UserController extends Controller
                 });
             })->latest()->paginate(5);
        return view("dashboard.users.index",compact('users'));
-    }
+    }// End Of Index
 
 
     public function create()
@@ -140,7 +140,7 @@ class UserController extends Controller
         // back to Users Page
         return redirect()->route('dashboard.users.index');
 
-    }
+    } // End Of Update
 
 
     public function destroy(User $user)
