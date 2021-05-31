@@ -25,7 +25,7 @@
             {{-- End Searching Form      --}}
 
             <ol class="breadcrumb">
-                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.index")}}">@lang('site.dashboard')</a></li>
+                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.welcome")}}">@lang('site.dashboard')</a></li>
                 <li class="active">@lang('site.clients')</li>
             </ol>
         </section>
@@ -42,9 +42,10 @@
                         <thead>
                         <tr>
                             <th class="">#</th>
-                            <th>@lang("site.name")</th>
+                            <th>@lang("site.client")</th>
                             <th>@lang("site.phone")</th>
                             <th>@lang("site.address")</th>
+                            <th>@lang("site.orders")</th>
                             <th>@lang("site.action")</th>
 
                         </tr>
@@ -56,6 +57,13 @@
                                     <td>{{ $client->name}}</td>
                                     <td>{{implode(' - ',$client->phone)}}</td>
                                     <td>{{ $client->address}}</td>
+                                    <td>
+                                        @if(auth()->user()->hasPermission('orders_create'))
+                                            <a href="{{route('dashboard.clients.orders.create',$client->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i>@lang('site.add_orders')</a>
+                                        @else
+                                            <button class="btn btn-primary" disabled>@lang('site.add_orders')</button>
+                                        @endif
+                                    </td>
                                     <td>
                                         @if(auth()->user()->hasPermission('clients_update'))
                                           <a class="btn btn-primary btn-sm " href="{{ route('dashboard.clients.edit', $client->id) }}"><i class="fa fa-edit"></i> @lang('site.edit')</a>

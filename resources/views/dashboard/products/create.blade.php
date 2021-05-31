@@ -8,7 +8,7 @@
             <h1>@lang('site.products')</h1>
 
             <ol class="breadcrumb">
-                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.index")}}">@lang('site.dashboard')</a></li>
+                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.welcome")}}">@lang('site.dashboard')</a></li>
                 <li class=""><a href="{{route("dashboard.products.index")}}"> @lang('site.products')</a></li>
                 <li class="active">@lang('site.add')</li>
             </ol>
@@ -64,12 +64,12 @@
 
                         <div class="form-group">
                             <label> @lang('site.purchase_price')</label>
-                            <input type="number" name="purchase_price" class="form-control" value="{{old('purchase_price')}}" >
+                            <input type="number" name="purchase_price" step="0.01" class="form-control" value="{{old('purchase_price')}}" >
                         </div> <!-- End Form-Group -->
 
                         <div class="form-group">
                             <label> @lang('site.sale_price')</label>
-                            <input type="number" name="sale_price" class="form-control" value="{{old('sale_price')}}" >
+                            <input type="number" name="sale_price" step="0.01" class="form-control" value="{{old('sale_price')}}" >
                         </div> <!-- End Form-Group -->
 
                         <div class="form-group">

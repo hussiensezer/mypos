@@ -8,7 +8,7 @@
             <h1>@lang('site.clients')</h1>
 
             <ol class="breadcrumb">
-                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.index")}}">@lang('site.dashboard')</a></li>
+                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.welcome")}}">@lang('site.dashboard')</a></li>
                 <li class=""><a href="{{route("dashboard.clients.index")}}"> @lang('site.clients')</a></li>
                 <li class="active">@lang('site.add')</li>
             </ol>

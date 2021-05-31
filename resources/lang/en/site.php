@@ -33,6 +33,12 @@ return
     'related_products' => 'Related Products',
     'phone' => 'Phone',
     'address' => ' Address',
+    'orders' => ' Orders',
+    'add_orders' => ' Add Orders ',
+    'no_record' => 'No Record Of Items Found',
+    'total' => 'Total',
+    'quantity' => 'Quantity',
+    'price' => 'Price',
     'ar' => [
         'category' => 'Category Name In Arabic',
         'product_name' => 'Product Name In Arabic',

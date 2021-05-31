@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['permission:clients_read'])->only('index');
+        $this->middleware(['permission:clients_create'])->only('create');
+        $this->middleware(['permission:clients_update'])->only('edit');
+        $this->middleware(['permission:clients_delete'])->only('destroy');
+    }
 
     public function index(Request $request)
     {

@@ -35,7 +35,7 @@
             {{-- End Searching Form      --}}
 
             <ol class="breadcrumb">
-                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.index")}}">@lang('site.dashboard')</a></li>
+                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.welcome")}}">@lang('site.dashboard')</a></li>
                 <li class="active">@lang('site.products')</li>
             </ol>
         </section>

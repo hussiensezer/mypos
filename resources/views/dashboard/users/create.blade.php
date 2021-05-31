@@ -8,7 +8,7 @@
             <h1>@lang('site.users')</h1>
 
             <ol class="breadcrumb">
-                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.index")}}">@lang('site.dashboard')</a></li>
+                <li>  <i class="fa fa-dashboard"></i> <a href="{{route("dashboard.welcome")}}">@lang('site.dashboard')</a></li>
                 <li class=""><a href="{{route("dashboard.users.index")}}"> @lang('site.users')</a></li>
                 <li class="active">@lang('site.add')</li>
             </ol>
@@ -65,7 +65,7 @@
                             <!-- Custom Tabs -->
                             <div class="nav-tabs-custom">
                                 @php
-                                    $models = ['users','categories','products'];
+                                    $models = ['users','categories','products','clients','orders'];
                                     $maps = ['create','read','update','delete'];
                                 @endphp
                                 <ul class="nav nav-tabs">

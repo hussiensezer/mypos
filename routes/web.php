@@ -12,11 +12,9 @@
 */
 
 Route::get('/', function () {
-    return redirect()->route("dashboard.index");
+    return redirect()->route("dashboard.welcome");
 });
-Route::get("test",function(){
-   return "Hellow From Home";
-});
+
 
 
 

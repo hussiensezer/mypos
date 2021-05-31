@@ -175,17 +175,6 @@
 
 {{--custom js--}}
 <script src="{{ asset('dashboard_files/js/custom/image_preview.js') }}"></script>
-<script src="{{ asset('dashboard_files/js/custom/order.js') }}"></script>
-
-<script>
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' /* optional */
-        });
-    });
-</script>
 
 @stack('scripts')
     </body>

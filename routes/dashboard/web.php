@@ -4,10 +4,7 @@
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
 
     Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function(){
-        Route::get("/index","DashboardController@index")->name("index");
-
-        // User Routes
-        Route::resource('users','UserController')->except(['show']);
+            Route::get("/","WelcomeController@index")->name("welcome");
 
         //Category Routes
         Route::resource('categories','CategoryController')->except(['show']);
@@ -15,8 +12,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
         //Product Routes
         Route::resource('products','ProductController')->except(['show']);
 
-        //Product Clients
+        //Product Clients , And Order Of Client
         Route::resource('clients','ClientController')->except(['Show']);
+        Route::resource('clients.orders','Client\OrderController')->except(['Show']);
+
+        // User Routes
+        Route::resource('users','UserController')->except(['show']);
+
+
+
 
     });
 
