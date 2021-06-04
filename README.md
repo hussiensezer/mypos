@@ -5,14 +5,14 @@
 ## About POS Project
 
 It's Point Of Sell You also can add product's and Client's and Orders
-##Project Map
+## Project Map
 - Users
 - Categories
 - Products
 - Clients
 - Orders
 
-##Features
+## Features
 
 - Login System
 - Permission Level[Super-Admin, Have Permission CRUD]
