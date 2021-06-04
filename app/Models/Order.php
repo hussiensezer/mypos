@@ -18,7 +18,5 @@ class Order extends Model
         return $this->belongsToMany(Product::class,'product_order')->withPivot('quantity');
     }
 
-    public function getCreatedAtAttribute($val){
-      return  (new \Carbon\Carbon)->ToFormattedDateString($val);
-    }
+
 }
