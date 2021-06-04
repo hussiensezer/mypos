@@ -42,7 +42,7 @@
                                                 <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <td>@lang('site.name')</td>
+                                                            <td>@lang('site.product')</td>
                                                             <td>@lang('site.stock')</td>
                                                             <td>@lang('site.price')</td>
                                                             <td>@lang('site.add')</td>
@@ -51,17 +51,29 @@
                                                     <tbody>
                                                     @foreach($category->products as $product)
                                                         <tr>
+                                                            @if($product->stock > 0)
                                                             <td>{{$product->name}}</td>
                                                             <td>{{$product->stock}}</td>
-                                                            <td>{{$product->sale_price}}</td>
+                                                            <td class="">{{number_format($product->sale_price,2)}}</td>
                                                             <td>
                                                                 <a class="btn btn-primary btn-sm add-product-btn"
-                                                                    id="product-{{$product->id}}"
+                                                                   id="product-{{$product->id}}"
                                                                    data-name="{{$product->name}}"
                                                                    data-id="{{$product->id}}"
                                                                    data-price="{{$product->sale_price}}"
+                                                                   data-stock = {{$product->stock}}
                                                                 >@lang('site.add')</a>
                                                             </td>
+                                                                @else
+                                                                    <del>
+                                                                        <td><del style="color:red">{{$product->name}}</del></td>
+                                                                        <td><del style="color:red">{{$product->stock}}</del></td>
+                                                                        <td class=""><del style="color:red">{{number_format($product->sale_price,2)}}</del></td>
+                                                                        <td> <button class="btn btn-default btn-sm  disabled">@lang('site.add')</button> </td>
+                                                                    </del>
+
+                                                                @endif
+
                                                         </tr>
                                                     @endforeach
                                                     </tbody>
@@ -84,6 +96,10 @@
                             <h3 class="box-title" style="margin-bottom: 15px ">@lang('site.orders')</h3>
 
                         </div>
+                        <form action="{{route("dashboard.clients.orders.store",$client->id)}}" method="POST">
+                            {{csrf_field()}}
+                            {{method_field('post')}}
+                            @include('partials._errors')
                         <table class="table table-hover table-responsive ">
                             <thead>
                             <tr>
@@ -102,14 +118,52 @@
 
                             <div>
                                 <h3 class="box-title" style="margin-bottom: 15px ">@lang('site.total') :- <span class="products_total"></span></h3>
-                                <button class="btn btn-primary btn-bitbucket btn-orders "><i class="fa fa-plus"></i>  @lang('site.add_orders')</button>
+                                <button class="btn btn-primary btn-bitbucket btn-orders" type="submit"><i class="fa fa-plus"></i>  @lang('site.add_orders')</button>
                             </div>
 
+                        </form> {{--End Form--}}
+                    </div>{{--End  Box-Primary--}}
+                        @if($client->orders->count() > 0)
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title" style="margin-bottom :10px">
+                                        @lang('site.previous_orders')
+                                        <small>{{$orders->count()}}</small>
+                                    </h3>
+                                </div>{{--End Box Header--}}
+                                <div class="box-body">
 
-                    </div>
-                </div>
-            </div>
-        </section>
+                                    @foreach($orders as $order)
+                                        <div class="panel-group">
+                                            <div class="panel panel-success">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a href="#order{{$order->id}}" data-toggle="collapse">{{$order->created_at}}</a>
+                                                    </h4>
+                                                </div>{{--End Panel Heading--}}
+                                                <div class="panel-collapse  collapse" id="order{{$order->id}}">
+                                                    <div class="panel-body">
+                                                        <ul class="list-group">
+                                                            @foreach($order->products as $product)
+                                                                <li class="list-group-item">{{$product->name}}</li>
+
+                                                             @endforeach
+                                                        </ul>{{--End uL--}}
+
+                                                    </div>{{--End Panel-Body--}}
+                                                </div>{{--End Panel-collapse--}}
+                                            </div>{{--End Panel-Success--}}
+                                        </div>{{--End Panel-Group --}}
+                                     @endforeach
+                                </div>
+                            </div>{{--End Box-Primary--}}
+                         @else
+                                <h2>@lang('site.no_previous_orders')</h2>
+                         @endif
+
+                </div> {{--End Col-md-6 --}}
+            </div> {{--End Row--}}
+        </section> {{--End Sections--}}
 
 
 

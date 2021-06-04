@@ -32,13 +32,24 @@ return
     'related_products' => ' المنتجات المرتبطة',
     'phone' => ' الهاتف',
     'address' => ' العنوان',
-
     'orders' => ' الطلبات',
     'add_orders' => ' اضافة طلبات',
+    'edit_orders' => ' تعديل طلبات',
     'no_record' => 'لا توجد بيانات مسجلة',
     'total' => 'المجموع',
     'quantity' => 'الكمية',
     'price' => 'السعر',
+    'client_name' => 'اسم العميل',
+    'status' => 'الحالة',
+    'create_at' => 'تاريخ الانشاء',
+    'receipt' => 'الفاتورة',
+    'show' => 'عرض',
+    'print' => 'طباعة',
+    'loading' => 'جارى تحميل البيانات',
+    'previous_orders' => 'الطلبات السابقة',
+    'no_previous_orders' => ' لا توجد طلبات السابقة',
+
+
      'ar' => [
         'category' => ' اسم القسم بلعة العربية',
          'product_name' => ' اسم المنتج بلغة العربية',

@@ -17,6 +17,10 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }// end of category
 
+    public function orders() {
+        return $this->belongsToMany(Product::class,'product_order');
+    }
+
     public function getImagePathAttribute() {
         return asset('uploads/product_images/' . $this->image);
     }// end of image path

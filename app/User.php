@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Order;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -49,4 +50,6 @@ class User extends Authenticatable
     public function getImagePathAttribute() {
         return asset('uploads/user_images/' . $this->image);
     }// end of image path
+
+
 }
